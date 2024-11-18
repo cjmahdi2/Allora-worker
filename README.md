@@ -30,7 +30,7 @@ request some faucet from the [Allora Testnet Faucet](https://faucet.testnet-1.te
 If you've previously run the old version and want to stop it before proceeding, follow these commands
 ```
 cd ~
-rm -r ~/allora-worker/
+rm -r ~/Allora-worker/
 docker stop custom-inference custom-worker custom-worker-0 custom-worker-1
 docker container prune -f
 docker rmi custom-inference
