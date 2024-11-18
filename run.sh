@@ -93,12 +93,17 @@ cat <<EOF > config.json
         "addressKeyName": "test",
         "addressRestoreMnemonic": "$mnemonic_phrase",
         "alloraHomeDir": "",
-        "gas": "1000000",
-        "gasAdjustment": 1.0,
+        "gas": "auto",
+        "gasAdjustment": 1.5,
+        "gasPrices": 0.08,
+        "maxFees": 200000,
         "nodeRpc": "$rpc",
-        "maxRetries": 1,
-        "delay": 1,
-        "submitTx": true
+        "maxRetries": 5,
+        "retryDelay": 3,
+        "accountSequenceRetryDelay": 5,
+        "submitTx": true,
+        "blockDurationEstimated": 10,
+        "windowCorrectionFactor": 0.8
     },
     "worker": [
         {
@@ -201,6 +206,184 @@ cat <<EOF > config.json
             }
         }
         
+    ],
+    "reputer": [
+      {
+        "topicId": 1,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "ETHUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 2,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "ETHUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 3,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "BTCUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 4,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "BTCUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 5,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "SOLUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 6,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "SOLUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 7,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "ETHUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 8,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "BNBUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 9,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "ARBUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 10,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "MEMEUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      },
+	  {
+        "topicId": 11,
+        "groundTruthEntrypointName": "api-worker-reputer",
+        "lossFunctionEntrypointName": "api-worker-reputer",
+        "minStake": 100000,
+        "groundTruthParameters": {
+          "GroundTruthEndpoint": "http://localhost:8888/gt/{Token}/{BlockHeight}",
+          "Token": "ELECTIONUSD"
+        },
+        "lossFunctionParameters": {
+          "LossFunctionService": "http://localhost:5000",
+          "LossMethodOptions": {
+            "loss_method": "sqe"
+          }
+        }
+      }
     ]
 }
 EOF
