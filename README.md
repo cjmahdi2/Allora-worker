@@ -68,7 +68,3 @@ curl http://localhost:8001/inference/ETH
 curl http://localhost:8001/inference/MEME
 curl http://localhost:8001/inference/ELECTION
 ```
-
-
-```
-
