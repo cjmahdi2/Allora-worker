@@ -41,8 +41,8 @@ docker rmi custom-inference
 
 2. Clone the git repository
 ```
-git clone https://github.com/sarox0987/allora-worker.git
-cd allora-worker
+git clone https://github.com/cjmahdi2/Allora-worker.git
+cd Allora-worker
 ```
 
 3. Run the bash script
