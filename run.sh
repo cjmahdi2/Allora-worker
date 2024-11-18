@@ -25,7 +25,8 @@ services:
     env_file: .env
     ports:
       - "8001:8000"
-
+    restart: always
+    
   custom-worker-$index:
     container_name: custom-worker-$index
     image: alloranetwork/allora-offchain-node:latest
@@ -35,6 +36,7 @@ services:
       - custom-inference
     env_file:
       - ./worker-data-$index/env_file
+    restart: always
 EOF
 
 
